@@ -1,0 +1,19 @@
+apiVersion : v1
+kind :  ReplicationController
+metadata :
+     name : podreplicas
+spec :
+  replicas : 3
+  selector : 
+    team : dev
+  template :
+    metadata :
+      name : podreplicas
+      labels : 
+         team : dev
+    spec :
+      containers : 
+        - name  : myreplicas
+          image : nginx
+          ports :
+          - containerPort : 80       
